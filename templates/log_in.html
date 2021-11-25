@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="col d-flex justify-content-center">
+        <div class="card " style="width: 18rem;">
+            <img src="{{ url_for('static', filename='icon.png') }}" class="card-img-top"
+                alt="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Google_Contacts_icon.svg/1200px-Google_Contacts_icon.svg.png"
+                class="img-fluid">
+            <div class="card-body">
+                <h3 class="card-title text-center">Contacts</h3>
+                <h6 class="card-title text-center"> No space in userName</h6>
+            </div>
+            <form action="/contacts" method="post">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">User Name</span>
+                    <input type="text" name="userName" class="form-control userName" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" placeholder="Cannot be empty">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                    <input type="password" name="password" class="form-control password"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                        placeholder="Cannot be empty">
+                </div>
+                <div class="d-grid gap-2 card-body">
+                    <input type="submit" name="action" class="btn btn-primary bU" value="Log in">
+                    <input type="submit" name="action" class="btn btn-primary bP" value="Sign up">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

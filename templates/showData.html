@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center">
+        <h1 class="display-1">Contacts</h1>
+    </div>
+    {% set link="/contacts/new?userName="+userName%}
+    <div class="row d-flex justify-content-center">
+        <div class="col-1"></div>
+        <a href="/" class="col-3 justify-content-center ">Return to the page of logging in</a>
+        <a href={{link}} class="col-3 justify-content-center ">Add new contact</a>
+
+
+        {%set link3="/contacts/"+userName+"/search"%}
+        <form action={{link3}} class="col-4 justify-content-center" method="post">
+            <div class="input-group mb-1">
+                <input type="text" name="name" class="form-control" placeholder="Search a contact by name"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            </div>
+        </form>
+        <div class="col-2"></div>
+    </div>
+    {% for contact in contacts %}
+    <div class="d-flex col justify-content-center ">
+        <div class="col-3">Name: {{contact["name"]}} </div>
+        <div class="col-3">Phone:{{contact["phone"]}} </div>
+        <div class="col-4">Address:{{contact["address"]}} </div>
+        {% set id=contact["_id"].__str__()%}
+        {% set link1="/contacts/"+id+"?userName="+userName%}
+        {% set link2="/contacts/delete/"+id+"?userName="+userName%}
+        <div class="col-1"><a href={{link1}}>Edit</a></div>
+        <div class="col-1"><a href={{link2}}>Delete</a></div>
+    </div>
+    {% endfor%}
+
+</body>
+
+</html>

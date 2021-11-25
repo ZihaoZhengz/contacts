@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new contact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+</head>
+
+<body>
+    <h1 class="d-flex justify-content-center">Add new contact </h1>
+    <div class="d-flex  justify-content-center">
+        {% set link="/contacts/new?userName="+userName%}
+        <form action={{link}} class="d-flex justify-content-center align-middle" method="POST">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                <input type="text" name="name" class="form-control password" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="name">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
+                <input type="text" name="phone" class="form-control password" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="phone number">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+                <input type="text" name="address" class="form-control password" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" placeholder="address">
+            </div>
+            <div class="input-group mb-3">
+                <input type="submit" class="btn btn-outline-primary" value="Save">
+            </div>
+        </form>
+    </div>
+    <div class="d-flex  justify-content-center"><a href="javascript:history.back()">Cancel</a></div>
+</body>
+
+</html>
